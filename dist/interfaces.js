@@ -24,3 +24,26 @@ showPicture({
     orientation: PhotoOrientation.Portrait,
     // extra:'test'// Error
 });
+function generatePicture(config) {
+    var pic = { title: 'Default', date: '2020-02' };
+    if (config.title) {
+        pic.title = config.title;
+    }
+    if (config.date) {
+        pic.date = config.date;
+    }
+    return pic;
+}
+var picture = generatePicture({});
+console.log('picture', picture);
+picture = generatePicture({ title: 'Travel Pic' });
+console.log('picture', picture);
+picture = generatePicture({ title: 'Travel Pic', date: '2021-07' });
+console.log('picture', picture);
+;
+var user;
+user = { id: 10, username: 'markedOlive', isPro: true };
+console.log('user', user);
+user.username = 'paparazzi';
+// user.id = 20;//Error!
+console.log('user', user);

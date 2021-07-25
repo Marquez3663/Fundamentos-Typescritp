@@ -32,21 +32,18 @@ var createPic = function (title, date, size) {
 var picture = createPic('Platzi session', '2020-03-10', '100x100');
 console.log('picture', picture);
 //Tipo de retorno con Typescript
-function handleError(code, message) {
-    //Procesamiento del codigo, mensaje
-    if (message === 'error') {
-        throw new Error(message + ".Code error: " + code);
-    }
-    else {
-        return 'An error has occurred';
-    }
-}
-;
-try {
-    var result = handleError(200, 'OK');
-    console.log('result', result);
-    result = handleError(404, 'error');
-    console.log('result', result);
-}
-catch (error) {
-}
+// function handleError(code: number, message: string): never | string{
+//     //Procesamiento del codigo, mensaje
+//     if (message === 'error'){
+//         throw new Error(`${message}.Code error: ${code}`);
+//     } else{
+//         return 'An error has occurred';
+//     }
+// };
+// try {
+//     let result = handleError(200, 'OK');
+//     console.log('result', result);
+//     result = handleError(404, 'error');
+//     console.log('result', result);
+// } catch (error) {
+// }
