@@ -1,3 +1,4 @@
+"use strict";
 // Void
 // Tipo explicito
 function showInfo(user) {
@@ -11,7 +12,7 @@ function showFormattedInfo(user) {
 showFormattedInfo({ id: 1, username: "markedOlive", firstName: "Oliver" });
 //Tipo void, como tipo de dato en una variable
 var unusable;
-unusable = null;
+// unusable = null;
 unusable = undefined;
 //Tipo:Never
 function handleError(code, message) {
