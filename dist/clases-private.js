@@ -38,6 +38,7 @@ var picture = new Picture(1, 'Platzi session', PhotoOrientation.Square);
 album.addPicture(picture);
 console.log('album', album);
 // Accediendo a los miembros publicos
-picture.id = 100; // public
-picture.title = 'Another title'; // public
-album.title = 'Personal Activities';
+// picture.id = 100; // public
+// picture.title = 'Another title'; // public
+// album.title = 'Personal Activities';
+console.log('album', album);
