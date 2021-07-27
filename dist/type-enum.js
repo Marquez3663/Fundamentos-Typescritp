@@ -11,7 +11,7 @@ var PhotoOrientation;
     PhotoOrientation[PhotoOrientation["Square"] = 2] = "Square";
     PhotoOrientation[PhotoOrientation["Panorama"] = 3] = "Panorama"; //3
 })(PhotoOrientation || (PhotoOrientation = {}));
-var landscape = PhotoOrientation.Landscape;
+const landscape = PhotoOrientation.Landscape;
 console.log('landscape', landscape);
 console.log('Landscape', PhotoOrientation[landscape]);
 // Modificacion de la enumeracion de los elementos
@@ -33,5 +33,5 @@ var Country;
     Country["Bolivia"] = "bol";
     Country["Portugal"] = "por";
 })(Country || (Country = {}));
-var country = Country.Bolivia;
+const country = Country.Bolivia;
 console.log('country', country);

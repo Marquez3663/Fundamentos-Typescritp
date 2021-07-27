@@ -9,17 +9,36 @@ enum PhotoOrientation{
 
 class Picture {
     // Propiedades
-    private id: number;
-    private title: string;
-    private orientation: PhotoOrientation;
+    private _id: number;
+    private _title: string;
+    private _orientation: PhotoOrientation;
 
     public constructor(id: number, 
             title: string,
             orientation: PhotoOrientation){
-                this.id = id;
-                this.title = title;
-                this.orientation = orientation;
+                this._id = id;
+                this._title = title;
+                this._orientation = orientation;
             }
+            get id(){
+                return this._id;
+            };
+            set id(id: number){
+                this._id = id;
+            };
+            get title(){
+                return this._title;
+            };
+            set title(title: string){
+                this._title = title;
+            };
+            get orientation() {
+                return this._orientation;
+            };
+            set orientation(o: PhotoOrientation){
+                this._orientation = o;
+            };
+
             //Comportamiento
             public toString(){
                 return`[id:{this.id},
@@ -29,15 +48,27 @@ class Picture {
 };
 
 class Album{
-    private id: number;
-    private title: string;
+    private _id: number;
+    private _title: string;
     private pictures: Picture[];
 
     public constructor(id: number,title: string){
-        this.id = id;
-        this.title = title;
+        this._id = id;
+        this._title = title;
         this.pictures = [];
     }
+    get id(){
+        return this._id;
+    };
+    set id(id: number){
+        this._id = id;
+    };
+    get title(){
+        return this._title;
+    };
+    set title(t: string){
+        this._title = t;
+    };
     public addPicture(picture: Picture){
         this.pictures.push(picture);
     }
@@ -50,7 +81,8 @@ album.addPicture(picture);
 console.log('album', album);
 
 // Accediendo a los miembros publicos
-// picture.id = 100; // public
-// picture.title = 'Another title'; // public
-// album.title = 'Personal Activities';
+console.log('picture.id', picture.id);// get id
+picture.id = 100; // private, set id(100)
+picture.title = 'Another title'; // private
+album.title = 'Personal Activities';//private
 console.log('album', album);

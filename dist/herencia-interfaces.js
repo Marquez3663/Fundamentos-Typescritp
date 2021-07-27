@@ -10,17 +10,17 @@ var PhotoOrientation;
 ;
 ;
 ;
-var album = {
+const album = {
     id: 1,
     title: 'Meetups',
     description: 'Community events around the world'
 };
-var picture = {
+const picture = {
     id: 1,
     title: 'Family',
     orientation: PhotoOrientation.Landscape
 };
-var newPicture = {};
+let newPicture = {};
 newPicture.id = 2;
 newPicture.title = 'Moon';
 console.log('album', album);

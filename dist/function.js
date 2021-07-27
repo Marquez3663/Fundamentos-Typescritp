@@ -21,15 +21,15 @@ createPicture('Colombia Trip', '2021-02-02');
 createPicture('Bangladesh');
 createPicture();
 //Flat Array Function
-var createPic = function (title, date, size) {
+let createPic = (title, date, size) => {
     return {
         title: title,
         date: date,
         size: size
     };
-    return { title: title, date: date, size: size };
+    return { title, date, size };
 };
-var picture = createPic('Platzi session', '2020-03-10', '100x100');
+const picture = createPic('Platzi session', '2020-03-10', '100x100');
 console.log('picture', picture);
 //Tipo de retorno con Typescript
 // function handleError(code: number, message: string): never | string{

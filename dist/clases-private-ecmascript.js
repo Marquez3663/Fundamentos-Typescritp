@@ -1,16 +1,18 @@
 "use strict";
-var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, state, value, kind, f) {
-    if (kind === "m") throw new TypeError("Private method is not writable");
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a setter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot write private member to an object whose class did not declare it");
-    return (kind === "a" ? f.call(receiver, value) : f ? f.value = value : state.set(receiver, value)), value;
+var __classPrivateFieldSet = (this && this.__classPrivateFieldSet) || function (receiver, privateMap, value) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to set private field on non-instance");
+    }
+    privateMap.set(receiver, value);
+    return value;
 };
-var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, state, kind, f) {
-    if (kind === "a" && !f) throw new TypeError("Private accessor was defined without a getter");
-    if (typeof state === "function" ? receiver !== state || !f : !state.has(receiver)) throw new TypeError("Cannot read private member from an object whose class did not declare it");
-    return kind === "m" ? f : kind === "a" ? f.call(receiver) : f ? f.value : state.get(receiver);
+var __classPrivateFieldGet = (this && this.__classPrivateFieldGet) || function (receiver, privateMap) {
+    if (!privateMap.has(receiver)) {
+        throw new TypeError("attempted to get private field on non-instance");
+    }
+    return privateMap.get(receiver);
 };
-var _Picture_id, _Picture_title, _Picture_orientation, _Album_id, _Album_title, _Album_pictures;
+var _id, _title, _orientation, _id_1, _title_1, _pictures;
 Object.defineProperty(exports, "__esModule", { value: true });
 // Typescript 3.8
 var PhotoOrientation;
@@ -21,42 +23,42 @@ var PhotoOrientation;
     PhotoOrientation[PhotoOrientation["Panorama"] = 3] = "Panorama";
 })(PhotoOrientation || (PhotoOrientation = {}));
 ;
-var Picture = /** @class */ (function () {
-    function Picture(id, title, orientation) {
+class Picture {
+    constructor(id, title, orientation) {
         // Propiedades
-        _Picture_id.set(this, void 0);
-        _Picture_title.set(this, void 0);
-        _Picture_orientation.set(this, void 0);
-        __classPrivateFieldSet(this, _Picture_id, id, "f");
-        __classPrivateFieldSet(this, _Picture_title, title, "f");
-        __classPrivateFieldSet(this, _Picture_orientation, orientation, "f");
+        _id.set(this, void 0);
+        _title.set(this, void 0);
+        _orientation.set(this, void 0);
+        __classPrivateFieldSet(this, _id, id);
+        __classPrivateFieldSet(this, _title, title);
+        __classPrivateFieldSet(this, _orientation, orientation);
     }
     //Comportamiento
-    Picture.prototype.toString = function () {
-        return "[id:{this.id},\n                    title:{this.title},\n                    orientation:{this.orientation}]";
-    };
-    return Picture;
-}());
-_Picture_id = new WeakMap(), _Picture_title = new WeakMap(), _Picture_orientation = new WeakMap();
-;
-var Album = /** @class */ (function () {
-    function Album(id, title) {
-        _Album_id.set(this, void 0);
-        _Album_title.set(this, void 0);
-        _Album_pictures.set(this, void 0);
-        __classPrivateFieldSet(this, _Album_id, id, "f");
-        __classPrivateFieldSet(this, _Album_title, title, "f");
-        __classPrivateFieldSet(this, _Album_pictures, [], "f");
+    toString() {
+        return `[id:{this.id},
+                    title:{this.title},
+                    orientation:{this.orientation}]`;
     }
-    Album.prototype.addPicture = function (picture) {
-        __classPrivateFieldGet(this, _Album_pictures, "f").push(picture);
-    };
-    return Album;
-}());
-_Album_id = new WeakMap(), _Album_title = new WeakMap(), _Album_pictures = new WeakMap();
+}
+_id = new WeakMap(), _title = new WeakMap(), _orientation = new WeakMap();
 ;
-var album = new Album(1, 'Personal Pictures');
-var picture = new Picture(1, 'Platzi session', PhotoOrientation.Square);
+class Album {
+    constructor(id, title) {
+        _id_1.set(this, void 0);
+        _title_1.set(this, void 0);
+        _pictures.set(this, void 0);
+        __classPrivateFieldSet(this, _id_1, id);
+        __classPrivateFieldSet(this, _title_1, title);
+        __classPrivateFieldSet(this, _pictures, []);
+    }
+    addPicture(picture) {
+        __classPrivateFieldGet(this, _pictures).push(picture);
+    }
+}
+_id_1 = new WeakMap(), _title_1 = new WeakMap(), _pictures = new WeakMap();
+;
+const album = new Album(1, 'Personal Pictures');
+const picture = new Picture(1, 'Platzi session', PhotoOrientation.Square);
 album.addPicture(picture);
 console.log('album', album);
 // Accediendo a los miembros publicos
