@@ -1,4 +1,8 @@
-import {Album, PhotoOrientation, Picture, User} from './photo-app';
+import { User } from './user'
+import {PhotoOrientation} from './photoOrientation';
+import { Album } from './album'
+import { Picture } from './picture'
+
 
 const user = new User(1, 'markedOlive', 'Oliver', true);
 const album = new Album(10, 'Platzi Pictures');
