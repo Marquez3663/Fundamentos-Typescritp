@@ -12,3 +12,6 @@ user.addAlbum(album);
 album.addPicture(picture);
 
 console.log('User:', user);
+
+user.removeAlbum(album);
+console.log('user', user);

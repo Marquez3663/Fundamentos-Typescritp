@@ -12,4 +12,5 @@ export class Album extends Item{
     addPicture(picture: Picture){
         this.picture.push(picture);
     };
+    
 };
